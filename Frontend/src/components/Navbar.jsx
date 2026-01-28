@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 
 
 function Navbar() {
-  const navigate = useNavigate();
   return (
     <>
       <div className="font-poppins">
