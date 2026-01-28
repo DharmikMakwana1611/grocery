@@ -4,7 +4,7 @@ function Testinomial(rating) {
   return (
     <>
       <div className="flex max-w-[1320px] mx-auto z-10 mt-[80px] items-center">
-        <img className="h-[300px] w-[872px]" src={`http://localhost:5000/uploads/banner.png`} alt="" />
+        <img className="h-[300px] w-[872px]" src={`/banner.png`} alt="" />
         <img
           className="h-[300px] w-[872px] ml-[25px]"
           src={`http://localhost:5000/uploads/add-banner.png`}
