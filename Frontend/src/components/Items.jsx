@@ -7,7 +7,7 @@ function Items() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/item")
+      .get(`${process.env.REACT_APP_API_URL}/api/item`)
       .then((res) => {
         setData(res.data);
       })

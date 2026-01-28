@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaShoppingCart, FaRegHeart, FaHeart } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 
 function Inc({ className = "" }) {
   const [count, setCount] = useState(1);

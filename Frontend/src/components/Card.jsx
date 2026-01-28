@@ -29,8 +29,9 @@ function Card({
           />
         )}
 
+        {/* ✅ FIXED IMAGE URL */}
         <img
-          src={`http://localhost:5000/uploads/${image}`}
+          src={`${process.env.REACT_APP_API_URL}/uploads/${image}`}
           alt={name}
           className="max-h-full max-w-full object-contain mt-2"
         />

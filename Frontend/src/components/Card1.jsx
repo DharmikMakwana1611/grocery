@@ -4,8 +4,10 @@ import { FaShoppingCart, FaRegHeart, FaHeart } from "react-icons/fa";
 function Card1({ name, price, rating, reviews, inStock, image }) {
   const [count, setCount] = useState(1);
   const [liked, setLiked] = useState(false);
+
   const increase = () => setCount((prev) => prev + 1);
   const decrease = () => setCount((prev) => Math.max(1, prev - 1));
+
   return (
     <>
       <div className="w-[424px] h-[410px] border-2 rounded-[10px]">
@@ -23,9 +25,11 @@ function Card1({ name, price, rating, reviews, inStock, image }) {
               size={30}
             />
           )}
+
+          {/* ✅ FIXED IMAGE URL */}
           <img
-            src={`http://localhost:5000/uploads/${image}`}
-            alt=""
+            src={`${process.env.REACT_APP_API_URL}/uploads/${image}`}
+            alt={name}
             className="max-h-full max-w-full object-contain mt-3"
           />
         </div>
@@ -53,45 +57,47 @@ function Card1({ name, price, rating, reviews, inStock, image }) {
         </div>
 
         <div className="bg-[#F4F2F2] px-[14px] h-[137px] pt-[18px] rounded-b-[10px]">
-        <div className="flex justify-between items-center">
-          <p className="text-[17px] font-bold">{name}</p>
-          <p className="text-[13px] font-bold">${price} / KG</p>
-        </div>
+          <div className="flex justify-between items-center">
+            <p className="text-[17px] font-bold">{name}</p>
+            <p className="text-[13px] font-bold">${price} / KG</p>
+          </div>
 
-        <div className="flex items-center mt-1">
-          <div className="relative inline-block leading-none">
-            <div className="text-gray-300 text-xl">★★★★★</div>
-            <div
-              className="absolute top-0 left-0 overflow-hidden text-green-600 text-xl"
-              style={{ width: `${(rating / 5) * 100}%` }}
-            >
-              ★★★★★
+          <div className="flex items-center mt-1">
+            <div className="relative inline-block leading-none">
+              <div className="text-gray-300 text-xl">★★★★★</div>
+              <div
+                className="absolute top-0 left-0 overflow-hidden text-green-600 text-xl"
+                style={{ width: `${(rating / 5) * 100}%` }}
+              >
+                ★★★★★
+              </div>
             </div>
+
+            <p className="text-[12px] ml-1">({reviews} Reviews)</p>
+            {inStock && (
+              <p className="text-[10px] text-[#30B44A] ml-auto -mt-5">
+                In Stock
+              </p>
+            )}
           </div>
 
-          <p className="text-[12px] ml-1">({reviews} Reviews)</p>
-          {inStock && (
-            <p className="text-[10px] text-[#30B44A] ml-auto -mt-5">In Stock</p>
-          )}
-        </div>
+          <div className="flex items-center mt-2">
+            <div className="flex items-center shadow-md rounded-[8px] w-[97px]">
+              <button onClick={decrease} className="px-2 py-1 text-lg font-bold">
+                −
+              </button>
+              <span className="px-4">{count}</span>
+              <button onClick={increase} className="px-2 py-1 text-lg font-bold">
+                +
+              </button>
+            </div>
 
-        <div className="flex items-center mt-2">
-          <div className="flex items-center shadow-md rounded-[8px] w-[97px]">
-            <button onClick={decrease} className="px-2 py-1 text-lg font-bold">
-              −
-            </button>
-            <span className="px-4">{count}</span>
-            <button onClick={increase} className="px-2 py-1 text-lg font-bold">
-              +
+            <button className="ml-auto flex items-center gap-2 px-3 py-2 text-[14px] border-2 border-[#33B44A] text-[#33B44A] rounded-[8px] shadow-md hover:bg-[#33B44A] hover:text-white">
+              <FaShoppingCart size={20} />
+              Cart
             </button>
           </div>
-
-          <button className="ml-auto flex items-center gap-2 px-3 py-2 text-[14px] border-2 border-[#33B44A] text-[#33B44A] rounded-[8px] shadow-md hover:bg-[#33B44A] hover:text-white">
-            <FaShoppingCart size={20} />
-            Cart
-          </button>
         </div>
-      </div>
       </div>
     </>
   );

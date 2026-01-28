@@ -3,10 +3,10 @@ import axios from "axios";
 
 function News() {
   const [data, setData] = useState([]);
-  
+
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/news")
+      .get(`${process.env.REACT_APP_API_URL}/api/news`)
       .then((res) => {
         setData(res.data);
       })
@@ -24,9 +24,10 @@ function News() {
       <div className="flex gap-[24px]">
         {data.slice(0, 3).map((item) => (
           <div key={item._id}>
+            {/* ✅ FIXED IMAGE URL */}
             <img
               className="h-[250px] w-[424px] object-cover"
-              src={`http://localhost:5000/uploads/${item.image}`}
+              src={`${process.env.REACT_APP_API_URL}/uploads/${item.image}`}
               alt={item.title}
             />
 

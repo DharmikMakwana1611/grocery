@@ -1,4 +1,4 @@
-import {React} from "react";
+import React from "react";
 
 function Adv() {
   return (
@@ -25,7 +25,7 @@ function Adv() {
             />
 
             <img
-              className="absolute top-[24px] left-[350px] mt-[210px] bottom-[16px] w-[29px] h-[34px] "
+              className="absolute top-[24px] left-[350px] mt-[210px] bottom-[16px] w-[29px] h-[34px]"
               src="/leave 4.png"
               alt=""
             />
@@ -52,15 +52,14 @@ function Adv() {
           </div>
         </div>
 
-        <div
-          className="relative flex ml-[24px] mr-[auto] bg-[#F8F5EA] mt-[80px] w-[648px] rounded-[20px] h-[300px] overflow-hidden"
-        >
+        <div className="relative flex ml-[24px] mr-[auto] bg-[#F8F5EA] mt-[80px] w-[648px] rounded-[20px] h-[300px] overflow-hidden">
           <img
             className="absolute right-[95.88px] left-[80px] top-0 h-full object-contain pointer-events-none"
             src="/wave1.png"
             alt=""
           />
-          <div className="relative z-10 ml-[32px] font-nerko text-[#30B44A] mt-[32px] text-[50px] ">
+
+          <div className="relative z-10 ml-[32px] font-nerko text-[#30B44A] mt-[32px] text-[50px]">
             Flat 30% OFF
             <p className="font-josefin font-bold leading-[50px] text-black text-[46px]">
               Hurry Up <br /> This Weekend
@@ -69,9 +68,10 @@ function Adv() {
               Buy Now
             </button>
           </div>
+
           <img
             className="relative z-10 flex ml-auto mt-[20px] w-[259.30242919921875px] h-[280px] mr-[30.7px] mb-0"
-            src={`http://localhost:5000/uploads/Group43.png`}
+            src={`${process.env.REACT_APP_API_URL}/uploads/Group43.png`}
             alt=""
           />
         </div>

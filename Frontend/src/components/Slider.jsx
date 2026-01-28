@@ -1,49 +1,51 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 
+const slides = [
+  "/Slide1.png",
+  "/Slide2.png",
+  "/Slide3.png",
+];
+
 function Slider() {
-  const [slides, setSlides] = useState([]);
   const [current, setCurrent] = useState(0);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/slider")
-      .then((res) => setSlides(res.data))
-      .catch((err) => console.log(err));
-  }, []);
-
   const prevSlide = () => {
-    setCurrent(current === 0 ? slides.length - 1 : current - 1);
+    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrent(current === slides.length - 1 ? 0 : current + 1);
+    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
-
-  if (slides.length === 0) return null;
 
   return (
     <div className="w-full h-[620px] flex justify-center items-center">
-      <div className="relative ml-[300px] w-[1320px]">
-
-        <button className="absolute top-[46%] ml-4" onClick={prevSlide}>
-          <GrFormPrevious size={28} />
-        </button>
+      <div className="relative w-[1320px] flex items-center justify-center">
+        {/* LEFT BUTTON */}
+        {slides.length > 1 && (
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full p-2"
+          >
+            <GrFormPrevious size={32} />
+          </button>
+        )}
 
         <img
-          className="w-[1000px]"
-          src={`http://localhost:5000/uploads/${slides[current].image}`}
+          className="w-[1000px] mx-auto"
+          src={slides[current]}
           alt="slider"
         />
 
-        <button
-          className="absolute ml-[955px] top-[46%]"
-          onClick={nextSlide}
-        >
-          <GrFormNext size={28} />
-        </button>
-
+        {/* RIGHT BUTTON */}
+        {slides.length > 1 && (
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full p-2"
+          >
+            <GrFormNext size={32} />
+          </button>
+        )}
       </div>
     </div>
   );

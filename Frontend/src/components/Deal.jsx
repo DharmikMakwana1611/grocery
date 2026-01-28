@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import Card1 from "./Card1";
 
@@ -7,12 +7,12 @@ function Deal() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/deal")
+      .get(`${process.env.REACT_APP_API_URL}/api/deal`)
       .then((res) => {
-        setDeal(res.data)
+        setDeal(res.data);
       })
       .catch((err) => console.log(err));
-  }, [])
+  }, []);
 
   return (
     <div className="max-w-[1324px] mx-auto mt-[80px]">
@@ -21,7 +21,7 @@ function Deal() {
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-        {deal.map(item => (
+        {deal.map((item) => (
           <Card1
             key={item._id}
             name={item.name}
