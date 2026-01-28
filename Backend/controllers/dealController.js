@@ -1,4 +1,4 @@
-import Deal from "../models/deal.js";
+import Deal from "../models/deal.js"
 
 export const getDeal = async (req, res) => {
   try {
