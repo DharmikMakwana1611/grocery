@@ -1,8 +1,8 @@
-const express = require("express");
-const router = express.Router();
+import express from "express";
+import { getSlider } from "../controllers/sliderControllers.js";
 
-const { getSlider } = require("../controllers/sliderControllers");
+const router = express.Router();
 
 router.get("/", getSlider);
 
-module.exports = router;
+export default router;

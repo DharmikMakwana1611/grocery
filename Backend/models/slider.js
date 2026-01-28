@@ -1,14 +1,17 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const sliderSchema = new mongoose.Schema({
+const sliderSchema = new mongoose.Schema(
+  {
     title: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     image: {
-        type: String,
-        required: true,
-    }
-});
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model("Slider", sliderSchema);
+export default mongoose.model("Slider", sliderSchema);

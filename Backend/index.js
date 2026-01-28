@@ -3,25 +3,36 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 
+// Load env variables FIRST
 dotenv.config();
 
 const app = express();
 
-app.use(cors());
+// Middleware
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
+// MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
-  .catch((err) => {
-    console.error("MongoDB connection error:", err.message);
+  .catch((error) => {
+    console.error("MongoDB connection error:", error.message);
     process.exit(1);
   });
 
+// Test route
 app.get("/", (req, res) => {
-  res.send("Backend is Running");
+  res.status(200).send("Backend is Running");
 });
 
+// Routes
 import sliderRoutes from "./routes/sliderRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
@@ -36,6 +47,7 @@ app.use("/api/item", itemRoutes);
 app.use("/api/deal", dealRoutes);
 app.use("/api/news", newsRoutes);
 
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

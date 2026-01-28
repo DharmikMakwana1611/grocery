@@ -1,14 +1,10 @@
-const Slider = require("../models/slider");
+import Slider from "../models/slider.js";
 
-const getSlider = async(req,res) => {
-    try{
-        const sliders = await Slider.find();
-        res.status(200).json(sliders);
-    }catch{
-        res.status(500).json({ message: error.message });
-    }
-};
-
-module.exports = {
-    getSlider,
+export const getSlider = async (req, res) => {
+  try {
+    const sliders = await Slider.find();
+    res.status(200).json(sliders);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
