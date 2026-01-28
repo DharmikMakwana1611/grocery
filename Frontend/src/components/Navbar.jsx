@@ -10,8 +10,6 @@ import {
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import { PiSquaresFourLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
 
 function Navbar() {
   return (
