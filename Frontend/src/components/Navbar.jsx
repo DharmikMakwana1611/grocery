@@ -9,8 +9,12 @@ import {
 } from "react-icons/fa";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import { PiSquaresFourLight } from "react-icons/pi";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 function Navbar() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="font-poppins">
@@ -27,21 +31,21 @@ function Navbar() {
           <div className="flex ml-auto items-center gap-5 mr-5">
             <div className="flex">
             <HiOutlineDevicePhoneMobile size={25} />
-            <a href="tel:1800-000-000">+1 1800-000-000</a>
+            <Link to="tel:1800-000-000">+1 1800-000-000</Link>
             </div>
             <div className="flex">
               <FaGift size={25} />
-              <a href="#" className="ml-3">
+              <Link to="/" className="ml-3">
                 Offers
-              </a>
+              </Link>
             </div>
             <div className="relative bg-[#EF3F234D] rounded-full p-2">
               <p className="absolute -top-1 -right-1 bg-[#EF3F23] text-white text-[10px] h-[18px] w-[18px] flex items-center justify-center rounded-full">
                 2
               </p>
-              <a href="#"><FaRegHeart size={20} color="black" /></a>
+              <Link to="/"><FaRegHeart size={20} color="black" /></Link>
             </div>
-            <a href="#"><FaRegUser size={28} /></a>
+            <Link to="/"><FaRegUser size={28} /></Link>
           </div>
         </nav>
         <hr className="border-b-2 border-gray-300" />
@@ -52,46 +56,46 @@ function Navbar() {
           <p className=" text-lg">Select Category</p>
           <div className="h-[60px] ml-4 border-r-2 border-gray-300"></div>
           <div className="flex p-2 items-center">
-            <a href="#" className="p-2">
+            <Link to="/" className="p-2">
               Home
-            </a>
-            <a href="#" className="p-2">
+            </Link>
+            <Link to="/" className="p-2">
               New Product
-            </a>
-            <a href="#" className="p-2">
+            </Link>
+            <Link to="/product" className="p-2">
               Featured Product
-            </a>
-            <a href="#" className="p-2">
+            </Link>
+            <Link to="/listing" className="p-2">
               Shop
-            </a>
+            </Link>
             <div className="relative group">
               <button className="p-2 flex items-center cursor-pointer">
                 Pages <FaAngleDown className="ml-1" />
               </button>
               <div className="absolute hidden group-hover:block bg-white shadow-lg rounded w-40 z-50 top-full left-0 border border-gray-200">
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-100">
                   About
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                </Link>
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-100">
                   Checkout
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                </Link>
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-100">
                   Cart
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                </Link>
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-100">
                   My Account
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                </Link>
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-100">
                   Blog
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                </Link>
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-100">
                   Contact
-                </a>
+                </Link>
               </div>
             </div>
-            <a href="#" className="p-2">
+            <Link to="/" className="p-2">
               Contact
-            </a>
+            </Link>
           </div>
           <div className="flex ml-auto bg-[#EF3F23] text-white text-m h-[60px] w-[150px] items-center justify-center font-bold">
             <FaShoppingCart className="" size={24} />

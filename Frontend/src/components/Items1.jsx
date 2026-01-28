@@ -1,29 +1,18 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Card from "./Card";
+import React from "react";
+import Card1 from "./Card1";
 
-function Items() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/item")
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  if (data.length === 0) return null;
+function Items1() {
+    
 
   return (
     <div className="max-w-[1322px] mt-[80px] mx-auto">
       <p className="font-bold text-[36px] mb-6">Popular Items</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {data.map((item) => (
-          <Card
-            key={item._id}
+
+        {products1.map(item => (
+          <Card1
+            key={item.id}
             name={item.name}
             price={item.price}
             rating={item.rating}
@@ -37,4 +26,4 @@ function Items() {
   );
 }
 
-export default Items;
+export default Items1;

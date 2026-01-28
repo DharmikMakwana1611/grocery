@@ -1,4 +1,4 @@
-import React from "react";
+import {React} from "react";
 
 function Adv() {
   return (
@@ -71,7 +71,7 @@ function Adv() {
           </div>
           <img
             className="relative z-10 flex ml-auto mt-[20px] w-[259.30242919921875px] h-[280px] mr-[30.7px] mb-0"
-            src="/Group 43.png"
+            src={`http://localhost:5000/uploads/Group43.png`}
             alt=""
           />
         </div>
