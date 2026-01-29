@@ -7,7 +7,7 @@ function Testinomial(rating) {
         <img className="h-[300px] w-[872px]" src={`/banner.png`} alt="" />
         <img
           className="h-[300px] w-[872px] ml-[25px]"
-          src={`http://localhost:5000/uploads/add-banner.png`}
+          src={`/add-banner.png`}
           alt=""
         />
       </div>
@@ -23,27 +23,27 @@ function Testinomial(rating) {
         <div className="flex items-center mt-[60px]">
           <img
             className="h-[80px] w-[80px] z-30 -mr-5"
-            src={`http://localhost:5000/uploads/Rectangle18.png`}
+            src={`/Rectangle18.png`}
             alt=""
           />
           <img
             className="h-[80px] w-[80px] z-40 -mr-5"
-            src={`http://localhost:5000/uploads/Rectangle19.png`}
+            src={`/Rectangle19.png`}
             alt=""
           />
           <img
             className="h-[100px] w-[100px] z-50"
-            src={`http://localhost:5000/uploads/Rectangle17.png`}
+            src={`/Rectangle17.png`}
             alt=""
           />
           <img
             className="h-[80px] w-[80px] z-40 -ml-5"
-            src={`http://localhost:5000/uploads/Rectangle18.png`}
+            src={`/Rectangle18.png`}
             alt=""
           />
           <img
             className="h-[80px] w-[80px] z-30 -ml-5"
-            src={`http://localhost:5000/uploads/Rectangle19.png`}
+            src={`/Rectangle19.png`}
             alt=""
           />
         </div>
